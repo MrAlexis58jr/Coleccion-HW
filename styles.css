@@ -18,6 +18,7 @@ header {
     justify-content: space-between;
     align-items: center;
     gap: 1em;
+    flex-wrap: wrap; /* Permite que se ajuste en pantallas chicas */
 }
 
 .header-logo {
@@ -27,11 +28,11 @@ header {
 }
 
 .hot-wheels-logo {
-    display: none; /* Ocultamos este logo en la versión de PC */
+    display: none; /* Ocultamos este logo en PC */
 }
 
 header h1 {
-    font-size: 2.5em;
+    font-size: clamp(1.5em, 5vw, 2.5em); /* Se ajusta al ancho de pantalla */
     margin: 0;
     font-weight: bold;
     color: #e51d2c;
@@ -77,6 +78,7 @@ h2 {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1em;
+    flex-wrap: wrap;
 }
 
 .team-heading h3 {
@@ -85,12 +87,14 @@ h2 {
     color: #ffd700;
     text-transform: uppercase;
     font-weight: bold;
-    font-size: 1.5em;
-    margin: 0 1em;
+    font-size: clamp(1em, 4vw, 1.5em);
+    margin: 0.5em;
 }
 
 .team-logo {
     height: 70px;
+    max-width: 100%;
+    object-fit: contain;
     filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.2));
 }
 
@@ -108,7 +112,8 @@ h2 {
     border-radius: 10px;
     padding: 1em;
     text-align: center;
-    width: 200px;
+    flex: 1 1 200px; /* Base 200px pero se adapta */
+    max-width: 250px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s, box-shadow 0.3s;
 }
@@ -161,39 +166,29 @@ h2 {
     opacity: 0.9;
 }
 
-/* --- Diseño para móviles --- */
+/* --- Tablets y pantallas medianas --- */
 @media (max-width: 768px) {
     .header-content {
-        flex-direction: column; /* Apila los elementos verticalmente */
+        flex-direction: column;
         text-align: center;
     }
 
     .header-logo {
-        display: none; /* Oculta los logos de las sagas en móvil */
+        display: none;
     }
 
     .hot-wheels-logo {
-        display: block; /* Muestra el logo de Hot Wheels */
+        display: block;
         height: 80px;
         margin-bottom: 0.5em;
     }
 
     header h1 {
-        font-size: 1.5em;
-        margin: 0;
-        order: 2; /* Pone el título abajo del logo de Hot Wheels */
+        order: 2;
     }
-    
+
     .header-center {
-        order: 1; /* Pone este contenedor primero para que se vea hasta arriba */
-    }
-
-    .team-panel {
-        padding: 1em;
-    }
-
-    .team-logo {
-        height: 50px;
+        order: 1;
     }
 
     .car-container {
@@ -201,6 +196,35 @@ h2 {
     }
 
     .car-card {
-        width: calc(50% - 10px);
+        flex: 1 1 calc(50% - 10px);
+        max-width: 100%;
+    }
+}
+
+/* --- Smartphones pequeños (<480px) --- */
+@media (max-width: 480px) {
+    header {
+        padding: 1em;
+    }
+
+    .hot-wheels-logo {
+        height: 60px;
+    }
+
+    header h1 {
+        font-size: 1.2em;
+    }
+
+    .car-card {
+        flex: 1 1 100%;
+    }
+
+    .team-heading {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .team-logo {
+        height: 40px;
     }
 }
