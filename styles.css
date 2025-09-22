@@ -21,14 +21,14 @@ header {
 }
 
 .header-logo {
-    height: 100px; /* Ajuste del tamaño del logo principal */
+    height: 120px; /* Logos principales más grandes */
     max-width: 30%;
     object-fit: contain;
 }
 
 header h1 {
-    font-size: 2em;
-    margin: 0 1em; /* Añadimos margen para que no se pegue a los logos */
+    font-size: 2.5em; /* Título principal más grande */
+    margin: 0 1em;
     font-weight: bold;
     color: #e51d2c;
     text-transform: uppercase;
@@ -48,24 +48,6 @@ section {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
 }
 
-.team-heading {
-    display: flex; /* Usamos flexbox para alinear elementos */
-    justify-content: space-between; /* Espacia los elementos a los lados */
-    align-items: center;
-    margin-top: 1.5em;
-    margin-bottom: 1em;
-}
-
-.team-heading h3 {
-    text-align: center;
-    flex-grow: 1; /* Permite que el nombre del equipo ocupe el espacio restante */
-    color: #ffd700;
-    text-transform: uppercase;
-    font-weight: bold;
-    font-size: 1.5em;
-    margin: 0;
-}
-
 h2 {
     color: #e51d2c;
     border-bottom: 2px solid #e51d2c;
@@ -73,8 +55,34 @@ h2 {
     margin-bottom: 1em;
 }
 
+/* Nuevo estilo para los paneles de equipo */
+.team-panel {
+    background-color: #333;
+    border-radius: 10px;
+    padding: 1em;
+    margin-bottom: 1.5em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.team-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1em;
+}
+
+.team-heading h3 {
+    text-align: center;
+    flex-grow: 1;
+    color: #ffd700;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1.5em;
+    margin: 0 1em;
+}
+
 .team-logo {
-    height: 60px; /* Ajuste del tamaño del logo del equipo */
+    height: 70px; /* Logos de equipo más grandes */
     filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.2));
 }
 
@@ -87,8 +95,8 @@ h2 {
 }
 
 .car-card {
-    background-color: #333;
-    border: 1px solid #444;
+    background-color: #444;
+    border: 1px solid #555;
     border-radius: 10px;
     padding: 1em;
     text-align: center;
@@ -159,6 +167,10 @@ h2 {
 
     .header-logo {
         height: 70px;
+    }
+
+    .team-panel {
+        padding: 1em;
     }
 
     /* Mostrar 2 autos por fila */
