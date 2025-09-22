@@ -1,3 +1,14 @@
+/* --- Reset básico --- */
+* {
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* --- General --- */
 body {
     font-family: 'Inter', Arial, sans-serif;
     background-color: #1a1a1a;
@@ -9,7 +20,7 @@ body {
 header {
     background-color: transparent;
     color: white;
-    padding: 2em 1em;
+    padding: 1.5em 1em;
     text-align: center;
 }
 
@@ -18,30 +29,26 @@ header {
     justify-content: space-between;
     align-items: center;
     gap: 1em;
-    flex-wrap: wrap; /* Permite que se ajuste en pantallas chicas */
+    flex-wrap: wrap; /* Evita desbordes en pantallas chicas */
 }
 
 .header-logo {
-    height: 120px;
-    max-width: 30%;
+    height: auto;
+    max-width: 120px;
     object-fit: contain;
 }
 
 .hot-wheels-logo {
-    display: none; /* Ocultamos este logo en PC */
+    display: none; /* Oculto en versión PC */
 }
 
 header h1 {
-    font-size: clamp(1.5em, 5vw, 2.5em); /* Se ajusta al ancho de pantalla */
-    margin: 0;
+    font-size: 2em;
+    margin: 0.5em 0 0;
     font-weight: bold;
     color: #e51d2c;
     text-transform: uppercase;
     flex-grow: 1;
-}
-
-p {
-    margin-top: 1em;
 }
 
 main {
@@ -52,7 +59,7 @@ main {
 
 section {
     background-color: #2a2a2a;
-    padding: 2em;
+    padding: 1.5em;
     margin-bottom: 2em;
     border-radius: 12px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
@@ -63,8 +70,10 @@ h2 {
     border-bottom: 2px solid #e51d2c;
     padding-bottom: 0.5em;
     margin-bottom: 1em;
+    font-size: 1.5em;
 }
 
+/* --- Panel de equipos --- */
 .team-panel {
     background-color: #333;
     border-radius: 10px;
@@ -79,6 +88,7 @@ h2 {
     align-items: center;
     margin-bottom: 1em;
     flex-wrap: wrap;
+    gap: 0.5em;
 }
 
 .team-heading h3 {
@@ -87,23 +97,22 @@ h2 {
     color: #ffd700;
     text-transform: uppercase;
     font-weight: bold;
-    font-size: clamp(1em, 4vw, 1.5em);
-    margin: 0.5em;
+    font-size: 1.3em;
+    margin: 0 0.5em;
 }
 
 .team-logo {
-    height: 70px;
-    max-width: 100%;
-    object-fit: contain;
+    height: 60px;
+    flex-shrink: 0;
     filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.2));
 }
 
+/* --- Tarjetas de autos --- */
 .car-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 15px;
     justify-content: center;
-    margin-top: 1.5em;
 }
 
 .car-card {
@@ -112,8 +121,9 @@ h2 {
     border-radius: 10px;
     padding: 1em;
     text-align: center;
-    flex: 1 1 200px; /* Base 200px pero se adapta */
-    max-width: 250px;
+    flex: 1 1 calc(25% - 15px); /* 4 por fila en PC */
+    min-width: 150px;
+    max-width: 220px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s, box-shadow 0.3s;
 }
@@ -123,21 +133,10 @@ h2 {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
-.car-card img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    transition: transform 0.3s ease-in-out;
-}
-
-.car-card:hover img {
-    transform: scale(1.05);
-}
-
 .car-card h3 {
     margin: 0.5em 0;
     color: #f0f0f0;
-    font-size: 1.2em;
+    font-size: 1.1em;
 }
 
 .car-card.owned {
@@ -145,13 +144,14 @@ h2 {
     box-shadow: 0 0 15px rgba(76, 175, 80, 0.7);
 }
 
+/* --- Botones --- */
 .toggle-button {
     color: white;
     border: none;
-    padding: 10px 20px;
+    padding: 10px 15px;
     border-radius: 50px;
     cursor: pointer;
-    font-size: 1em;
+    font-size: 0.9em;
     font-weight: bold;
     background-color: #f44336;
     transition: background-color 0.3s ease, transform 0.2s;
@@ -166,7 +166,13 @@ h2 {
     opacity: 0.9;
 }
 
-/* --- Tablets y pantallas medianas --- */
+/* --- Diseño responsive --- */
+@media (max-width: 1024px) {
+    .car-card {
+        flex: 1 1 calc(33.3% - 15px); /* 3 por fila */
+    }
+}
+
 @media (max-width: 768px) {
     .header-content {
         flex-direction: column;
@@ -179,52 +185,29 @@ h2 {
 
     .hot-wheels-logo {
         display: block;
-        height: 80px;
-        margin-bottom: 0.5em;
+        max-width: 150px;
+        margin: 0 auto;
     }
 
     header h1 {
-        order: 2;
-    }
-
-    .header-center {
-        order: 1;
-    }
-
-    .car-container {
-        gap: 10px;
+        font-size: 1.4em;
     }
 
     .car-card {
-        flex: 1 1 calc(50% - 10px);
-        max-width: 100%;
+        flex: 1 1 calc(50% - 10px); /* 2 por fila */
     }
 }
 
-/* --- Smartphones pequeños (<480px) --- */
 @media (max-width: 480px) {
-    header {
-        padding: 1em;
-    }
-
-    .hot-wheels-logo {
-        height: 60px;
-    }
-
-    header h1 {
-        font-size: 1.2em;
-    }
-
     .car-card {
-        flex: 1 1 100%;
+        flex: 1 1 100%; /* 1 por fila */
     }
 
-    .team-heading {
-        flex-direction: column;
-        text-align: center;
+    .team-heading h3 {
+        font-size: 1.1em;
     }
 
     .team-logo {
-        height: 40px;
+        height: 45px;
     }
 }
