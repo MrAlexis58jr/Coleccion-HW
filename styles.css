@@ -15,19 +15,20 @@ header {
 
 .header-logos {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    gap: 1.5em;
     flex-wrap: wrap;
 }
 
 .header-logo {
-    height: 70px;
+    height: 100px; /* Ajuste del tamaño del logo principal */
+    max-width: 30%;
+    object-fit: contain;
 }
 
 header h1 {
     font-size: 2em;
-    margin: 0;
+    margin: 0 1em; /* Añadimos margen para que no se pegue a los logos */
     font-weight: bold;
     color: #e51d2c;
     text-transform: uppercase;
@@ -48,26 +49,32 @@ section {
 }
 
 .team-heading {
-    display: flex;
+    display: flex; /* Usamos flexbox para alinear elementos */
+    justify-content: space-between; /* Espacia los elementos a los lados */
     align-items: center;
-    gap: 1em;
     margin-top: 1.5em;
+    margin-bottom: 1em;
 }
 
-h2, h3 {
-    margin: 0;
+.team-heading h3 {
+    text-align: center;
+    flex-grow: 1; /* Permite que el nombre del equipo ocupe el espacio restante */
     color: #ffd700;
     text-transform: uppercase;
     font-weight: bold;
     font-size: 1.5em;
+    margin: 0;
 }
 
 h2 {
     color: #e51d2c;
+    border-bottom: 2px solid #e51d2c;
+    padding-bottom: 0.5em;
+    margin-bottom: 1em;
 }
 
 .team-logo {
-    height: 40px;
+    height: 60px; /* Ajuste del tamaño del logo del equipo */
     filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.2));
 }
 
@@ -136,4 +143,26 @@ h2 {
 .toggle-button:hover {
     transform: scale(1.05);
     opacity: 0.9;
+}
+
+/* --- Diseño para móviles --- */
+@media (max-width: 768px) {
+    .header-logos {
+        flex-direction: column;
+        gap: 1em;
+    }
+
+    header h1 {
+        font-size: 1.5em;
+        margin: 0.5em 0;
+    }
+
+    .header-logo {
+        height: 70px;
+    }
+
+    /* Mostrar 2 autos por fila */
+    .car-card {
+        width: calc(50% - 15px);
+    }
 }
