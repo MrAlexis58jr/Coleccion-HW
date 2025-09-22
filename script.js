@@ -33,7 +33,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 updateButtonText(card);
             });
         } else {
-            // Si no hay datos guardados, inicializa los botones según la clase "owned" del HTML
             carCards.forEach(updateButtonText);
         }
     };
@@ -41,15 +40,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // Cargar la colección al iniciar la página
     loadCollection();
 
-    // Añadir el evento de clic a cada tarjeta
+    // Añadir el evento de clic a cada botón
     carCards.forEach(card => {
-        card.addEventListener('click', (event) => {
-            // Asegurarse de que el clic es en el botón o dentro de la tarjeta
-            if (event.target.tagName === 'BUTTON' || event.target.closest('.car-card')) {
-                card.classList.toggle('owned');
-                updateButtonText(card);
-                saveCollection(); // Guardar el estado después de cada cambio
-            }
+        const button = card.querySelector('.toggle-button');
+        button.addEventListener('click', (event) => {
+            card.classList.toggle('owned');
+            updateButtonText(card);
+            saveCollection(); // Guardar el estado después de cada cambio
         });
     });
 });
