@@ -13,11 +13,11 @@ header {
     text-align: center;
 }
 
-.header-logos {
+.header-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
+    flex-wrap: nowrap; /* Evita que los logos principales se rompan en líneas */
     gap: 1em;
 }
 
@@ -171,7 +171,7 @@ h2 {
 
 /* --- Diseño para móviles --- */
 @media (max-width: 768px) {
-    .header-logos {
+    .header-content {
         flex-direction: column;
         gap: 1em;
     }
@@ -182,6 +182,11 @@ h2 {
 
     .hot-wheels-logo {
         height: 80px;
+        margin-bottom: 0.5em;
+    }
+    
+    .header-center {
+        order: -1; /* Mueve el logo de Hot Wheels al principio */
     }
 
     header h1 {
