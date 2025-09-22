@@ -18,20 +18,37 @@ header {
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
+    gap: 1em;
 }
 
 .header-logo {
-    height: 120px; /* Logos principales más grandes */
+    height: 120px;
     max-width: 30%;
     object-fit: contain;
 }
 
+.header-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.hot-wheels-logo {
+    height: 120px;
+    margin-bottom: 0.5em;
+}
+
 header h1 {
-    font-size: 2.5em; /* Título principal más grande */
-    margin: 0 1em;
+    font-size: 2.5em;
+    margin: 0;
     font-weight: bold;
     color: #e51d2c;
     text-transform: uppercase;
+}
+
+p {
+    margin-top: 1em;
 }
 
 main {
@@ -55,7 +72,6 @@ h2 {
     margin-bottom: 1em;
 }
 
-/* Nuevo estilo para los paneles de equipo */
 .team-panel {
     background-color: #333;
     border-radius: 10px;
@@ -82,7 +98,7 @@ h2 {
 }
 
 .team-logo {
-    height: 70px; /* Logos de equipo más grandes */
+    height: 70px;
     filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.2));
 }
 
@@ -160,21 +176,32 @@ h2 {
         gap: 1em;
     }
 
+    .header-logo {
+        height: 70px;
+    }
+
+    .hot-wheels-logo {
+        height: 80px;
+    }
+
     header h1 {
         font-size: 1.5em;
         margin: 0.5em 0;
-    }
-
-    .header-logo {
-        height: 70px;
     }
 
     .team-panel {
         padding: 1em;
     }
 
-    /* Mostrar 2 autos por fila */
+    .team-logo {
+        height: 50px;
+    }
+
+    .car-container {
+        gap: 10px;
+    }
+
     .car-card {
-        width: calc(50% - 15px);
+        width: calc(50% - 10px);
     }
 }
